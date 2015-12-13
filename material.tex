@@ -55,6 +55,7 @@
 	Moreover, if $n=m$ we say that $A$ is a \textit{square matrix}.
 	Lastly, we denote the set of $m\times n$ matrices over $\FF$ as $M_{m\times n}(\FF)$.
 \end{definition}
+
 \begin{example}
 	Let $\FF$ be a field and $m,n\in\NN$, then $M_{m\times n}(\FF)$ is a vector space over $\FF$ under the following operations for $A,B\in M_{m\times n}(\FF)$ and $k\in\FF$.
 	\begin{align*}
@@ -62,3 +63,77 @@
 		(kA)_{i,j}&=kA_{i,j}
 	\end{align*}
 \end{example}
+\begin{proof}
+	The proof is trivial from the fact that we operating on multiple copies of a field.
+\end{proof}
+
+\begin{example}
+	Let $S$ be a nonempty set and let $\FF$ be a field and let $\mathscr{F}(S,\FF)$ denote the set of all functions from $S$ into $\FF$.
+	Two elements $f,g\in\mathscr{F}(S,\FF)$ are equal if and only if $f(s)=g(s)$ for all $s\in S$.
+	Then $\mathscr{F}(S,\FF)$ is a vector space under the following operations for $f,g\in\mathscr{F}(S,\FF)$ and $k\in\FF$.
+	\begin{align*}
+		(f+g)(s)&=f(s)+g(s)\\
+		(kf)(s)&=k\brac{f(s)}
+	\end{align*}
+\end{example}
+\begin{proof}
+	The proof is trivial because all operations are done inside the field, and thus the space inherits the structure from $\FF$.
+\end{proof}
+
+\begin{definition}[Polynomial Ring]
+	Let $\FF$ be a field.
+	Then the \textit{ring of polynomials in an indeterminate $x$ over $\FF$}, denoted $\FF[x]$ is defined as
+	\[
+		\FF[x] := \set{\sum_{i=0}^n a_i x^i | n\in\NN, (a_0,a_1,\ldots,a_n)\in\FF^n, a_n\neq 0}.
+	\]
+	Additionally, we define $x^0=1$.
+	Moreover, for each $p=\sum_{i=0}^n p_ix^i\in\FF[x]$, the \textit{degree of $p$}, denoted $\deg p$, is $n$.
+	Furthermore, if $p=0$, that is $p_n=p_{n-1}=\ldots=p_0=0$, then $p$ is called the \textit{zero polynomial} and $\deg p = -1$ or $\deg p =-\infty$ depending on convention.
+	If $\deg p=0$, then we say $p$ is a \textit{constant polynomial}.
+	Lastly, $\FF[x]$ forms a ring under the following operations where $p,q\in\FF[x]$ and without loss of generality assume, $\deg p \geq\deg q$.
+	\begin{align*}
+		p+q &=\sum_{i=0}^{\deg q} (p_i+q_i) +\sum_{i=\deg q + 1}^{\deg p} p_i\\
+		p q &= \sum_{k=0}^{\deg p \cdot \deg q} \sum_{i+j=k} p_iq_j
+	\end{align*}
+\end{definition}
+\begin{example}
+	Let $\FF$ be a field, then $\FF[x]$ is a vector space over $\FF$ under polynomial addition and scalar multiplication by constant polynomials.
+\end{example}
+\begin{proof}
+	Since $\FF[x]$ is a ring, it is closed under addition.
+	Since constant polynomials are polynomials, it is closed under scalar multiplication.
+	Since $\FF[x]$ is a ring, addition is commutative and associative.
+	Moreover the zero polynomial is the additive identity and likewise serves as the zero vector.
+	Since $\FF[x]$ is a ring, each $p\in\FF[x]$ has a unique $-p\in\FF[x]$ such that $p+(-p)=0$.
+	The constant polynomial $1$ is the multiplicative identity in the ring and serves as the identity in the vector space.
+	Furthermore, multiplication is associative and distributes over addition because $\FF[x]$ is, indeed, a ring.
+\end{proof}
+
+\begin{proposition}
+	The zero vector in any vector space $V$ is unique.
+\end{proposition}
+\begin{proof}
+	Assume there exists two zero vectors in $V$ denoted $0_1$ and $0_2$.
+	Then $v+0_1=v$ and $v+0_2=v$ for all $v\in V$.
+	Therefore it is true that
+	\[
+		0_2 = 0_2+0_1 = 0_1 + 0_2 = 0_1
+	\]
+	and thus these identities are in fact the same.
+\end{proof}
+\begin{proposition}
+	Let $V$ be a vector space and let $v\in V$, then there exists a unique $u\in V$ such that $v+u=0$.
+\end{proposition}
+\begin{proof}
+	Assume $v$ has two inverses, namely $u_1$ and $u_2$.
+	Then $v+u_1=0$ and $v+u_2=0$.
+	Therefore,
+	\[
+		v+u_1+u_2=0+u_2=u_2
+	\]
+	and
+	\[
+		v+u_1+u_2=v+u_2+u_1=0+u_1=u_1.
+	\]
+	Ergo, $u_1=u_2$ and the inverse of $v$ is unique.
+\end{proof}

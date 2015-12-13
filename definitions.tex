@@ -39,3 +39,20 @@
 	Moreover, if $n=m$ we say that $A$ is a \textit{square matrix}.
 	Lastly, we denote the set of $m\times n$ matrices over $\FF$ as $M_{m\times n}(\FF)$.
 \end{definition}
+
+\begin{definition}[Polynomial Ring]
+	Let $\FF$ be a field.
+	Then the \textit{ring of polynomials in an indeterminate $x$ over $\FF$}, denoted $\FF[x]$ is defined as
+	\[
+		\FF[x] := \set{\sum_{i=0}^n a_i x^i | n\in\NN, (a_0,a_1,\ldots,a_n)\in\FF^n, a_n\neq 0}.
+	\]
+	Additionally, we define $x^0=1$.
+	Moreover, for each $p=\sum_{i=0}^n p_ix^i\in\FF[x]$, the \textit{degree of $p$}, denoted $\deg p$, is $n$.
+	Furthermore, if $p=0$, that is $p_n=p_{n-1}=\ldots=p_0=0$, then $p$ is called the \textit{zero polynomial} and $\deg p = -1$ or $\deg p =-\infty$ depending on convention.
+	If $\deg p=0$, then we say $p$ is a \textit{constant polynomial}.
+	Lastly, $\FF[x]$ forms a ring under the following operations where $p,q\in\FF[x]$ and without loss of generality assume, $\deg p \geq\deg q$.
+	\begin{align*}
+		p+q&=\sum_{i=0}^{\deg q} (p_i+q_i) +\sum_{i=\deg q + 1}^{\deg p} p_i\\
+		pq &= \sum_{k=0}^{\deg p \cdot \deg q} \sum_{i+j=k} p_iq_j
+	\end{align*}
+\end{definition}

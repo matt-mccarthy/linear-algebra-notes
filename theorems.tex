@@ -1,0 +1,29 @@
+\section{Vector Spaces}
+\begin{proposition}
+	The zero vector in any vector space $V$ is unique.
+\end{proposition}
+\begin{proof}
+	Assume there exists two zero vectors in $V$ denoted $0_1$ and $0_2$.
+	Then $v+0_1=v$ and $v+0_2=v$ for all $v\in V$.
+	Therefore it is true that
+	\[
+		0_2 = 0_2+0_1 = 0_1 + 0_2 = 0_1
+	\]
+	and thus these identities are in fact the same.
+\end{proof}
+\begin{proposition}
+	Let $V$ be a vector space and let $v\in V$, then there exists a unique $u\in V$ such that $v+u=0$.
+\end{proposition}
+\begin{proof}
+	Assume $v$ has two inverses, namely $u_1$ and $u_2$.
+	Then $v+u_1=0$ and $v+u_2=0$.
+	Therefore,
+	\[
+		v+u_1+u_2=0+u_2=u_2
+	\]
+	and
+	\[
+		v+u_1+u_2=v+u_2+u_1=0+u_1=u_1.
+	\]
+	Ergo, $u_1=u_2$ and the inverse of $v$ is unique.
+\end{proof}
