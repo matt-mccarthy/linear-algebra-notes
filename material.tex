@@ -15,3 +15,50 @@
 	Furthermore, $x+y$ is called the \textit{sum of $x$ and $y$} while $ax$ is called the \textit{product of $x$ and $a$}.
 	Moreover, each $x\in V$ is called a \textit{vector} and each $a\in\FF$ is called a \textit{scalar}.
 \end{definition}
+
+\begin{definition}[$n$-tuple]
+	An object of the form $(a_1,a_2,\ldots,a_n)$ where $a_j\in\FF$ for all $1\leq j\leq n$, is called an \textit{$n$-tuple}.
+\end{definition}
+
+\begin{example}
+	Let $\FF$ be a field and $n\in\NN$, then $\FF^n=\set{(a_1,a_2,\ldots,a_n)| a_j\in\FF \forall 1\leq j\leq n}$ forms a vector space under component-wise addition and multiplication as defined below for $(a_1,a_2,\ldots ,a_n),(b_1,b_2,\ldots,b_n)\in\FF^n$ and $k\in\FF$.
+	\begin{align*}
+		(a_1,a_2,\ldots ,a_n)+(b_1,b_2,\ldots,b_n)&=(a_1+b_1,a_2+b_2,\ldots,a_n+b_n)\\
+		k(a_1,a_2,\ldots ,a_n)&=(ka_1,ka_2,\ldots,ka_n)
+	\end{align*}
+	Furthermore, it said that
+	\[
+		(a_1,a_2,\ldots ,a_n)=(b_1,b_2,\ldots,b_n)
+	\]
+	if and only if $a_j=b_j$ for all $1\leq j\leq n$.
+\end{example}
+\begin{proof}
+	$\FF^n$ is a vector space trivially from the fact that $\FF$ is a field.
+\end{proof}
+
+\begin{definition}[Matrix]
+	Let $\FF$ be a field and $m,n\in\NN$, then an \textit{$m\times n$ matrix} with entries from $\FF$ is a rectangular array of the form
+	\[
+		A=
+		\begin{pmatrix}
+			a_{1,1} & a_{1,2} & \ldots & a_{1,n}\\
+			a_{2,1} & a_{2,2} & \ldots & a_{2,n}\\
+			\vdots & \vdots & \ddots & \vdots\\
+			a_{m,1} & a_{m,2} & \ldots & a_{m,n}
+		\end{pmatrix}
+	\]
+	where $a_{i,j}\in\FF$ for all $1\leq i \leq m$ and $1\leq j \leq n$.
+	The entries $(a_{i,1},a_{i,2},\ldots,a_{i,n})$ is called the \textit{$i$th row} of the matrix and is a row vector in $\FF^n$.
+	The entries $(a_{1,j},a_{2,j},\ldots,a_{m,j})$ is called the \textit{$j$th column} of the matrix and is a column vector in $\FF^n$.
+	We denote the entry on the $i$th row and $j$th column as $A_{i,j}$.
+	Furthermore, two $m\times n$ matrices, $A$ and $B$, are equal if and only if $A_{i,j}=B_{i,j}$ for all $1\leq i\leq m$ and $1\leq j\leq n$; we denote this by $A=B$.
+	Moreover, if $n=m$ we say that $A$ is a \textit{square matrix}.
+	Lastly, we denote the set of $m\times n$ matrices over $\FF$ as $M_{m\times n}(\FF)$.
+\end{definition}
+\begin{example}
+	Let $\FF$ be a field and $m,n\in\NN$, then $M_{m\times n}(\FF)$ is a vector space over $\FF$ under the following operations for $A,B\in M_{m\times n}(\FF)$ and $k\in\FF$.
+	\begin{align*}
+		(A+B)_{i,j}&=A_{i,j}+B_{i,j}\\
+		(kA)_{i,j}&=kA_{i,j}
+	\end{align*}
+\end{example}
