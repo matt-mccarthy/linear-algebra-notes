@@ -1,0 +1,17 @@
+\section{Vector Spaces}
+
+\begin{definition}[Vector Space]
+	A \textit{vector space} $V$ over a field $\FF$ is a set with two binary operations, $+:V\times V\rightarrow V$ and $\cdot:V\times\FF\rightarrow V$ such that all of the following hold.
+	\begin{enumerate}
+		\item For all $x,y\in V$, $x+y=y+x$. (Additive Commutativity)
+		\item For all $x,y,z\in V$, $x+(y+z)=(x+y)+z$. (Additive Associativity)
+		\item There exists an element, denoted 0, in $V$ such that for all $x\in V$, $x+0=x$.
+		\item For each $x\in V$ there exists a $y\in V$, denoted $-x$, such that $x+y=0$.
+		\item For all $x\in V$, $1x=x$.
+		\item For all $a,b\in\FF$ and $x\in V$, $a(bx)=(ab)x$.
+		\item For all $a\in\FF$ and $x,y\in V$, $a(x+y)=ax+ay$.
+		\item For all $a,b\in\FF$ and $x\in V$, $(a+b)x=ax+bx$.
+	\end{enumerate}
+	Furthermore, $x+y$ is called the \textit{sum of $x$ and $y$} while $ax$ is called the \textit{product of $x$ and $a$}.
+	Moreover, each $x\in V$ is called a \textit{vector} and each $a\in\FF$ is called a \textit{scalar}.
+\end{definition}
