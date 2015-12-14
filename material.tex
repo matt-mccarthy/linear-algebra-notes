@@ -370,3 +370,76 @@
 	Since $x\in W$ for all $W\in\mathcal{W}$, $ax\in W$ for all $W\in\mathcal{W}$.
 	Ergo, $ax\in W_i$ and $W_i$ is a subspace of $V$.
 \end{proof}
+
+\begin{proposition}
+	For any matrix $A$, $[{(A^T)}^T]=A$.
+\end{proposition}
+\begin{proof}
+	Apply the definition of matrix transposition twice.
+	\[
+		[{(A^T)}^T]_{i,j}=(A^T)_{j,i}=A_{i,j}
+	\]
+\end{proof}
+
+\begin{proposition}
+	For any matrix $A$, $A+A^T$ is symmetric.
+\end{proposition}
+\begin{proof}
+	Consider $(A+A^T)_{i,j}$.
+	\[
+		(A+A^T)_{i,j} =
+		A_{i,j} +(A^T)_{i,j} =
+		A_{i,j} + A_{j,i} =
+		A_{j,i} + A_{i,j} =
+		A_{j,i} + (A^T)_{j,i} =
+		(A+A^T)_{j,i} =
+		[{(A+A^T)}^T]_{i,j}
+	\]
+	And thus, $(A+A^T)$ is symmetric.
+\end{proof}
+
+\begin{proposition}
+	Let $\KK$ be a field and let $A,B\in M_{n\times n}(\KK)$ and $a,b\in\KK$, then $\trace (aA+bB)=a\trace A + b\trace B$.
+\end{proposition}
+\begin{proof}
+	\begin{align*}
+		\trace (aA+bB) &= \sum_{i=1}^n (aA+bB)_{i,i} \\
+		&= \sum_{i=1}^n \brac{(aA)_{i,i}+(bB)_{i,i}} \\
+		&= \paren{\sum_{i=1}^n a\cdot A_{i,i}} + \paren{\sum_{i=1}^n b\cdot B_{i,i}}\\
+		&= a\paren{\sum_{i=1}^n A_{i,i}} + b\paren{\sum_{i=1}^n B_{i,i}}\\
+		&= a\trace A + b\trace B
+	\end{align*}
+\end{proof}
+
+\begin{definition}[Sum of Subsets of a Vector Space]
+	Let $S,R$ be nonempty subsets of a vector space $V$, then the \textit{sum of $S$ and $R$}, denoted $S+R$ is defined as $S+R=\set{s+r|s\in S, r\in R}$.
+\end{definition}
+
+\begin{proposition}
+	Let $U,W$ be subspaces of a vector space $V$ over a field $\FF$.
+	Then $U+W$ is a subspace of $V$ and is the smallest subspace containing both $U$ and $W$.
+\end{proposition}
+\begin{proof}
+	Since $U$ and $W$ are subspaces, $0\in U$ and $0\in W$ therefore, $0=0+0\in U+W$.
+	Let $x,y\in U+W$ then there exist $u_x,u_y\in U$ and $w_x,w_y\in W$ such that $x=u_x+w_x$ and $y=u_y+w_y$.
+	Thus,
+	\[
+		x+y=(u_x+w_x)+(u_y+w_y)=(u_x+u_y)+(w_x+w_y).
+	\]
+	Since $U$ and $W$ are subspaces, $u_x+u_y\in U$ and $w_x+w_y\in W$.
+	Ergo, $x+y=(u_x+u_y)+(w_x+w_y)\in U+W$.
+
+	Let $a\in\FF$.
+	Then,
+	\[
+		ax= a(u_x+w_x)=au_x+aw_x.
+	\]
+	Since $U$ and $W$ are subspaces, $au_x\in U$ and $aw_x\in W$.
+	Ergo, $ax=au_x+aw_x\in U+W$ and $U+W$ is a subspace of $V$.
+
+	We know that, set-wise, $U=\set{u+0}_{u\in U}$ and $W=\set{0+w}_{w\in W}$, and thus $U,W\subseteq U+W$.
+	Let $X$ be a subspace of $V$ such that $U,W\subseteq X$.
+	Let $x\in U+W$, then there exists some $u\in U\subseteq X$ and $w\in W\subseteq X$ such that $x=u+w$.
+	Therefore, $x=u+w\in X$ and $U+W\subseteq X$ for all subspaces $X$ containing $U$ and $W$.
+	Ergo, $U+W$ is the smallest subspace of $V$ containing $U$ and $W$.
+\end{proof}
