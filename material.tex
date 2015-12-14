@@ -443,3 +443,92 @@
 	Therefore, $x=u+w\in X$ and $U+W\subseteq X$ for all subspaces $X$ containing $U$ and $W$.
 	Ergo, $U+W$ is the smallest subspace of $V$ containing $U$ and $W$.
 \end{proof}
+
+\begin{definition}[Direct Sum of Vector Spaces]
+	A vector space $V$ is called the \textit{direct sum of $U$ and $W$}, denoted $V=U\oplus W$ if and only if $U$ and $W$ are subspaces of $V$ such that $U\cap W=\emptyset$ and $U+W=V$.
+\end{definition}
+
+\begin{example}
+	Let $\KK$ be a field and let $U=\set{(a_1,a_2,\ldots, a_n)\in\KK^n| a_n=0}$ and $V=\set{(a_1,a_2\ldots,a_n)\in\KK^n|a_1=a_2=\ldots=a_{n-1}=0}$.
+	Then $\KK^n = U\oplus V$.
+\end{example}
+\begin{proof}
+	The details are obvious and left as an exercise.
+\end{proof}
+
+\begin{definition}[Cosets of a Vector Space]
+	Let $U$ be a subspace of a vector space $V$ over a field $\KK$.
+	Then for each $v\in V$ the set $\set{v}+W=\set{v+w}_{w\in W}$ is called the \textit{coset of $W$ containing $v$}, denoted $v+W$.
+\end{definition}
+
+\begin{proposition}
+	Let $\KK$ be a field and $W$ be a subspace of a vector space $V$ over $\FF$ and let $v\in V$.
+	Then $v+W$ is a subspace if and only if $v\in W$.
+\end{proposition}
+\begin{proof}
+	$\Leftarrow$ Suppose $v\in W$.
+	Then by closure, $v+W=\set{v+w}_{w\in W}=W$.
+
+	$\Rightarrow$ Suppose $v+W$ is a subspace of $V$.
+	Then $0\in v+W$ and therefore, there exists a $w\in W$ such that $0=v+w$.
+	This $w$ can only be $-v$ by uniqueness of inverses.
+	Since $-v\in W$, $v\in W$ since $W$ is a subspace.
+\end{proof}
+
+\begin{proposition}
+	Let $\KK$ be a field and $W$ be a subspace of a vector space $V$ over $\FF$ and let $v\in V$.
+	Then $v\in v+W$.
+\end{proposition}
+\begin{proof}
+	Since $W$ is a subspace, $0\in W$ and thus $v=v+0\in v+W$.
+\end{proof}
+
+\begin{proposition}
+	Let $\KK$ be a field and $W$ be a subspace of a vector space $V$ over $\FF$ and let $u,v\in V$.
+	Then $v+W\cap u+W=\emptyset$ if and only if $v+W\neq u+W$.
+\end{proposition}
+\begin{proof}
+	$\Rightarrow$ Suppose $v+W\cap u+W=\emptyset$.
+	Then since both $v+W$ and $u+W$ are non-empty, $v+W\neq u+W$.
+
+	$\Leftarrow$ Suppose $v+W\neq u+W$ with $v+W\cap u+W\neq\emptyset$.
+	Then there exists an $x\in v+W\cap u+W$.
+	Ergo, $x\in v+W$ and $x\in u+W$.
+	Thus, there exists $w_1,w_2\in W$ such that $x=v+w_1$ and $x=u+w_2$ respectively.
+	Therefore, $v+w_1=u+w_2$ and $v=u+w_2-w_1$.
+	Ergo,
+	\[
+		v+W=\set{v+w}_{w\in W}=\set{u+(w_2-w_1+w)}_{w\in W}=u+W.
+	\]
+	Thus, creating a contradiction.
+	Therefore if $v+W\neq u+W$ then $v+W\cap u+W=\emptyset$.
+\end{proof}
+
+\begin{proposition}
+	Let $\KK$ be a field and $W$ be a subspace of a vector space $V$ over $\FF$ and let $u,v\in V$.
+	Then $v+W=u+W$ if and only if $v-u\in W$.
+\end{proposition}
+\begin{proof}
+	$\Rightarrow$ Assume $v+W=u+W$.
+	Then $v\in v+W$ and thus $v\in u+W$.
+	Ergo, there exists a $w\in W$ such that $v=u+w$.
+	Solving for $w$ yields $w=v-u\in W$.
+
+	$\Leftarrow$ Assume $v-u\in W$.
+	Therefore, $u+v-u=v\in u+W$.
+	We know $v\in v+W$ thus, $u+W\cap v+W\neq\emptyset$.
+	This occurs if and only if $u+W=v+W$.
+\end{proof}
+
+\begin{definition}[Quotient Space]
+	Let $\KK$ be a field and $W$ be a subspace of a vector space $V$ over $\FF$.
+	The the \textit{quotient space of $V$ modulo $W$}, denoted $V/W$ is the set of all cosets of $W$,
+	\[
+		V/W := \set{v+W}_{v\in V}.
+	\]
+	Furthermore $V/W$ is a vector space under the following operations.
+	\begin{align*}
+		(u+W)+(v+W)&=(u+v)+W\\
+		a(u+W)&=(au)+W
+	\end{align*}
+\end{definition}

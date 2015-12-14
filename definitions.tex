@@ -103,3 +103,25 @@
 \begin{definition}[Sum of Subsets of a Vector Space]
 	Let $S,R$ be nonempty subsets of a vector space $V$, then the \textit{sum of $S$ and $R$}, denoted $S+R$ is defined as $S+R=\set{s+r|s\in S, r\in R}$.
 \end{definition}
+
+\begin{definition}[Direct Sum of Vector Spaces]
+	A vector space $V$ is called the \textit{direct sum of $U$ and $W$}, denoted $V=U\oplus W$ if and only if $U$ and $W$ are subspaces of $V$ such that $U\cap W=\emptyset$ and $U+W=V$.
+\end{definition}
+
+\begin{definition}[Cosets of a Vector Space]
+	Let $U$ be a subspace of a vector space $V$ over a field $\KK$.
+	Then for each $v\in V$ the set $\set{v}+W=\set{v+w}_{w\in W}$ is called the \textit{coset of $W$ containing $v$}, denoted $v+W$.
+\end{definition}
+
+\begin{definition}[Quotient Space]
+	Let $\KK$ be a field and $W$ be a subspace of a vector space $V$ over $\FF$.
+	The the \textit{quotient space of $V$ modulo $W$}, denoted $V/W$ is the set of all cosets of $W$,
+	\[
+		V/W := \set{v+W}_{v\in V}.
+	\]
+	Furthermore $V/W$ is a vector space under the following operations.
+	\begin{align*}
+		(u+W)+(v+W)&=(u+v)+W\\
+		a(u+W)&=(au)+W
+	\end{align*}
+\end{definition}
