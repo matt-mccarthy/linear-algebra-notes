@@ -1,5 +1,7 @@
 \section{Vector Spaces}
 
+\subsection{Introduction to Vector Spaces}
+
 \begin{definition}[Vector Space]
 	A \textit{vector space} $V$ over a field $\FF$ is a set with two binary operations, $+:V\times V\rightarrow V$ and $\cdot:V\times\FF\rightarrow V$ such that all of the following hold.
 	\begin{enumerate}
@@ -92,8 +94,8 @@
 	If $\deg p=0$, then we say $p$ is a \textit{constant polynomial}.
 	Lastly, $\FF[x]$ forms a ring under the following operations where $p,q\in\FF[x]$ and without loss of generality assume, $\deg p \geq\deg q$.
 	\begin{align*}
-		p+q &=\sum_{i=0}^{\deg q} (p_i+q_i) +\sum_{i=\deg q + 1}^{\deg p} p_i\\
-		p q &= \sum_{k=0}^{\deg p \cdot \deg q} \sum_{i+j=k} p_iq_j
+		p+q &=\sum_{i=0}^{\deg q} (p_i+q_i)x^i +\sum_{i=\deg q + 1}^{\deg p} p_ix^i\\
+		p q &= \sum_{k=0}^{\deg p \cdot \deg q} \paren{\sum_{i+j=k} p_iq_j} x^k
 	\end{align*}
 \end{definition}
 \begin{example}
@@ -107,6 +109,18 @@
 	Since $\FF[x]$ is a ring, each $p\in\FF[x]$ has a unique $-p\in\FF[x]$ such that $p+(-p)=0$.
 	The constant polynomial $1$ is the multiplicative identity in the ring and serves as the identity in the vector space.
 	Furthermore, multiplication is associative and distributes over addition because $\FF[x]$ is, indeed, a ring.
+\end{proof}
+
+\begin{proposition}
+	If $u,v,w$ are elements of a vector space $V$ such that $x+z=y+z$ then, $x=y$.
+\end{proposition}
+\begin{proof}
+	Since $z\in V$, then there exists a $-z\in V$ such that $z+(-z)=0$.
+	Thus, $x+z=y+z$ implies
+	\[
+		x+z-z=y+z-z
+	\]
+	and ergo $x=y$.
 \end{proof}
 
 \begin{proposition}
@@ -136,4 +150,164 @@
 		v+u_1+u_2=v+u_2+u_1=0+u_1=u_1.
 	\]
 	Ergo, $u_1=u_2$ and the inverse of $v$ is unique.
+\end{proof}
+\begin{proposition}
+	Let $V$ be a vector space over a field $\FF$, then:
+	\begin{enumerate}
+		\item $0x=0$ for all $x\in V$;
+		\item $a0 = 0$ for all $a\in\FF$;
+		\item $(-a)x=-(ax)=a(-x)$ for all $x\in V$ and $a\in\FF$.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}[Proof (1):]
+	Consider $0x+0x$.
+	Then,
+	\[
+		0x+0x=(0+0)x=0x=0+0x.
+	\]
+	Since $0x+0x=0+0x$, by cancellation, we have $0x=0$.
+\end{proof}
+\begin{proof}[Proof (2)]
+	Consider $a0+a0$.
+	\[
+		a0+a0=a(0+0)=a0=a0+0
+	\]
+	Thus, by cancellation, $a0=0$.
+\end{proof}
+\begin{proof}[Proof (3)]
+	Consider $-(ax)$.
+	We know that $-(ax)$ is the unique additive inverse of $ax$, thus it is enough to show that $(-a)x$ and $a(-x)$ are inverses of $ax$.
+	\begin{align*}
+		ax+(-a)x &= (a-a)x\\
+		&= 0x\\
+		&= 0\\
+		ax+a(-x)&= a(x-x)\\
+		&=a0\\
+		&=0
+	\end{align*}
+	Thus $a(-x)$ and $(-a)x$ are inverses of $ax$ and $(-a)x=-(ax)=a(-x)$.
+\end{proof}
+
+\pagebreak
+
+\subsection{Subspaces}
+
+\begin{definition}[Subspace]
+	A \textit{subspace}, $W$, of a vector space, $V$, over a field, $\FF$, is a subset of $V$ that is also a vector space over $\FF$.
+\end{definition}
+\begin{example}
+	For any vector space $V$, $V$ and $\set{0}$ are subspaces of $V$.
+	The latter is called the \textit{zero subspace}.
+\end{example}
+
+\begin{thm}
+	Let $V$ be a vector space over a field $\FF$ and let $W\subseteq V$.
+	Then $W$ is a subspace of $V$ if and only if all of the following are satisfied.
+	\begin{itemize}
+		\item $0\in W$.
+		\item For all $x,y\in W$, $x+y\in W$.
+		\item For all $a\in\FF$ and $x\in W$, $ax\in W$.
+	\end{itemize}
+\end{thm}
+\begin{proof}
+	$\Rightarrow$ Since $W$ is a subspace of $V$, $0\in W$ and $W$ is closed under $V$'s vector addition and scalar multiplication.
+
+	$\Leftarrow$ Since $V$ is a vector space $W$ inherits associativity, commutativity, and distributivity from $V$ as well as $V$'s behavior with respect to the identities.
+	Furthermore, $0\in W$ by assumption.
+	All that is left to show is that $W$ contains additive inverses.
+	Suppose $x\in W$, then by assumption $-x=(-1)x\in W$.
+	Thus $W$ is a subspace of $V$.
+\end{proof}
+
+\begin{definition}[Matrix Transpose]
+	Let $M$ be an $m\times n$ matrix, then the \textit{transpose of $M$}, denoted $M^T$, is the $n\times m$ matrix defined by $(M^T)_{i,j}=M_{j,i}$, that is
+	\[
+		M^T=
+		\begin{pmatrix}
+			M_{1,1} & M_{2,1} & \ldots & M_{m,1}\\
+			M_{1,2} & M_{2,2} & \ldots & M_{m,2}\\
+			\vdots & \vdots & \ddots & \vdots\\
+			M_{1,n} & M_{2,n} & \ldots & M_{m,n}
+		\end{pmatrix}.
+	\]
+\end{definition}
+
+\begin{definition}[Symmetric Matrix]
+	Let $M$ be a matrix, then if $M=M^T$, we say $M$ is \textit{symmetric}.
+\end{definition}
+
+\begin{example}
+	The set of symmetric $n\times n$ matrices over a field $\FF$, denoted $W_{n\times n}(\FF)$, is a subspace of $M_{n\times n}(\FF)$.
+\end{example}
+\begin{proof}
+	Consider the zero matrix.
+	Since the zero matrix is an $n\times n$ matrix with all entries equal to zero, the transpose of the zero matrix is also an $n\times n$ matrix with all entries equal to zero.
+	Thus, $0=0^T$ and the zero matrix is symmetric.
+
+	Let $A,B\in W_{n\times n}(\FF)$.
+	Then $A=A^T$ and $B=B^T$.
+	By definition of symmetry and matrix transpose we have
+	\begin{equation}\label{subspace-eq1}
+		A_{i,j}=(A^T)_{i,j}=A_{j,i}
+	\end{equation}
+	and
+	\begin{equation}\label{subspace-eq2}
+		B_{i,j}=(B^T)_{i,j}=B_{j,i}
+	\end{equation}
+	for all $1\leq i, j\leq n$.
+
+	Consider $(A+B)$.
+	By definition we have
+	\[
+		(A+B)_{i,j}=A_{i,j}+B_{i,j}.
+	\]
+	By \autoref{subspace-eq1} and \autoref{subspace-eq2} we have
+	\[
+		(A+B)_{i,j}=A_{i,j}+B_{i,j}=A_{j,i}+B_{j,i}.
+	\]
+	The definition of matrix transpose implies that
+	\[
+		(A+B)_{i,j}=A_{i,j}+B_{i,j}=A_{j,i}+B_{j,i}=(A^T)_{i,j}+(B^T)_{i,j}
+	\]
+	and thus by definition of matrix addition,
+	\[
+		(A+B)_{i,j}=A_{i,j}+B_{i,j}=A_{j,i}+B_{j,i}=(A^T)_{i,j}+(B^T)_{i,j}=(A^T+B^T)_{i,j}.
+	\]
+	Ergo, $A+B$ is symmetric and $W(\FF)$ is closed under matrix addition.
+
+	Let $k\in\FF$ and consider $kA$.
+	We know by definition that
+	\[
+		(kA)_{i,j}=k\cdot A_{i,j}.
+	\]
+	We invoke \autoref{subspace-eq1} again to get that
+	\[
+		(kA)_{i,j}=k\cdot A_{i,j}=k\cdot A_{j,i}.
+	\]
+	Applying the definition of matrix transpose yields,
+	\[
+		(kA)_{i,j}=k\cdot A_{i,j}=k\cdot A_{j,i}=k\cdot (A^T)_{i,j}.
+	\]
+	Lastly, by definition of scalar multiplication we have,
+	\[
+		(kA)_{i,j}=k\cdot A_{i,j}=k\cdot A_{j,i}=k\cdot (A^T)_{i,j}=(kA^T)_{i,j}.
+	\]
+	Thus $kA$ is symmetric and $W(\FF)$ is closed under scalar multiplication.
+\end{proof}
+
+\begin{thm}
+	Let $V$ be a vector space over a field $\FF$ and let $\mathcal{W}$ be a countable collection of subspaces of $V$.
+	Then
+	\[
+		W_i = \bigcap_{W\in\mathcal{W}} W
+	\]
+	is a subspace of $V$.
+\end{thm}
+\begin{proof}
+	Since $0\in W$ for all $W\in\mathcal{W}$, $0\in W_i$.
+	Let $x,y\in W_i$, then $x,y\in W$ for all $W\in\mathcal{W}$ and thus $x+y\in W$ for all $W\in\mathcal{W}$.
+	Therefore, $x+y\in W_i$.
+	Let $a\in\FF$.
+	Since $x\in W$ for all $W\in\mathcal{W}$, $ax\in W$ for all $W\in\mathcal{W}$.
+	Ergo, $ax\in W_i$ and $W_i$ is a subspace of $V$.
 \end{proof}
