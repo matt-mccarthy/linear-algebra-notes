@@ -125,3 +125,30 @@
 		a(u+W)&=(au)+W
 	\end{align*}
 \end{definition}
+
+\pagebreak
+
+\subsection{Linear Combinations}
+
+\begin{definition}[Linear Combination]
+	Let $V$ be a vector space over a field $\FF$ and let $S$ be a nonempty subset of $V$.
+	An $x\in V$ is said to be a \textit{linear combination of elements of $S$} if and only if there exists a $\set{s_j}_{j=1}^n\subseteq S$ and scalars $\set{a_j}_{j=1}^n\subseteq\FF$ where $n < \infty$ such that
+	\[
+		x=\sum_{j=1}^n a_j y_j.
+	\]
+	When this happens, we say $x$ is a \textit{linear combination of $y_1,y_2,\ldots, y_n$}.
+\end{definition}
+
+\begin{definition}[Spanning Set]
+	Let $V$ be a vector space over a field $\FF$ and let $S$ be a nonempty subset of $V$.
+	Then, the \textit{span of $S$}, denoted $\spann S$, is the set
+	\[
+		\spann S = \set{\sum_{j=1}^n a_j s_j | \set{a_j}_{j=1}^n\subseteq\FF, \set{s_j}_{j=1}^n\subseteq S, n<\infty}
+	\]
+	or the set of linear combinations of elements of $S$.
+	We define $\spann\emptyset = \set{0}$.
+\end{definition}
+
+\begin{definition}[Span]
+A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V$.
+\end{definition}

@@ -535,3 +535,78 @@
 \begin{proof}
 	A bunch of tedious symbol pushing that I refuse to do.
 \end{proof}
+
+\pagebreak
+
+\subsection{Linear Combinations}
+
+\begin{definition}[Linear Combination]
+	Let $V$ be a vector space over a field $\FF$ and let $S$ be a nonempty subset of $V$.
+	An $x\in V$ is said to be a \textit{linear combination of elements of $S$} if and only if there exists a $\set{s_j}_{j=1}^n\subseteq S$ and scalars $\set{a_j}_{j=1}^n\subseteq\FF$ where $n < \infty$ such that
+	\[
+		x=\sum_{j=1}^n a_j y_j.
+	\]
+	When this happens, we say $x$ is a \textit{linear combination of $y_1,y_2,\ldots, y_n$}.
+\end{definition}
+
+\begin{definition}[Spanning Set]
+	Let $V$ be a vector space over a field $\FF$ and let $S$ be a nonempty subset of $V$.
+	Then, the \textit{span of $S$}, denoted $\spann S$, is the set
+	\[
+		\spann S = \set{\sum_{j=1}^n a_j s_j | \set{a_j}_{j=1}^n\subseteq\FF, \set{s_j}_{j=1}^n\subseteq S, n<\infty}
+	\]
+	or the set of linear combinations of elements of $S$.
+	We define $\spann\emptyset = \set{0}$.
+\end{definition}
+
+\begin{thm}
+	Let $V$ be a vector space over a field $\FF$ and let $S$ be a nonempty subset of $V$.
+	Then $\spann S$ is a subspace of $V$ and is the smallest subspace of $V$ containing $S$.
+\end{thm}
+
+\begin{proof}
+	Let $\set{s_j}_{j=1}^n\subseteq S$ where $n < \infty$.
+	Then $0=\sum_{j=1}^n 0 s_j\in\spann S$.
+	Let $x,y\in\spann S$.
+	Then there exist $\set{s_j}_{j=1}^n,\set{r_j}_{j=1}^m\subseteq S$ and $\set{a_j}_{j=1}^n,\set{b_j}_{j=1}^m\subseteq\FF$ with $m,n <\infty$ such that $x=\sum_{j=1}^n a_js_j$ and $y=\sum_{j=1}^mb_jr_j$.
+	Define $\set{t_j}_{j=1}^{n+m}$ and $\set{c_j}_{j=1}^{n+m}$ by
+	\[
+		t_j =
+		\begin{cases}
+			s_j & j\leq n\\
+			r_j & j > n
+		\end{cases}
+		\hspace{1in}
+		c_j =
+		\begin{cases}
+			a_j & j \leq n\\
+			b_j & j > n
+		\end{cases}.
+	\]
+	We can see that $\set{t_j}$ is a finite subset of $S$ and $\set{c_j}$ is a finite subset of $\FF$, thus any element made out of scalar multiples of $t$ vectors is in $\spann S$.
+	Consider $x+y$.
+	\[
+		x+y = \sum_{j=1}^n a_js_j + \sum_{j=1}^mb_jr_j
+		= \sum_{j=1}^n c_jt_j + \sum_{j=n+1}^{n+m}b_{j-n}r_{j-n}
+		= \sum_{j=1}^n c_jt_j + \sum_{j=n+1}^{n+m} c_jt_j
+	\]
+	Therefore, $x+y$ is a linear combination of elements of $S$ and thus $x+y\in\spann S$.
+	Consider $kx$ for any $k\in\FF$.
+	\[
+		kx=k\sum_{j=1}^n a_js_j=\sum_{j=1}^n (ka_j)s_j
+	\]
+	Ergo, $kx\in\spann S$ and $\spann S$ is a subspace of $V$.
+
+	Let $W$ be a subspace of $V$ such that $S\subseteq W$.
+	Then for all $s\in S$ and $a\in\FF$, $as\in W$ since $W$ is a subspace.
+	Ergo, for any $\set{s_j}_{j=1}^n\subseteq S$ and $\set{a_j}_{j=1}^n\subseteq\FF$ with $n < \infty$
+	\[
+		\sum_{j=1}^n a_js_j\in W
+	\]
+	since $W$ is a subspace and any finite sum of vectors in $W$ is in $W$.
+	Ergo $\spann S\subseteq W$ and is the smallest subspace of $V$ containing $S$.
+\end{proof}
+
+\begin{definition}[Span]
+A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V$.
+\end{definition}
