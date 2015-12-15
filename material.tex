@@ -610,3 +610,31 @@
 \begin{definition}[Span]
 A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V$.
 \end{definition}
+
+\begin{proposition}
+	Let $W$ be a nonempty subset of a vector space $V$ over a field $\FF$.
+	Then $W$ is a subspace of $V$ if and only if $W=\spann W$.
+\end{proposition}
+\begin{proof}
+	$\Rightarrow$ Suppose $W$ is a subspace.
+	We know $W\subseteq\spann W$, by definition.
+	Furthermore, for all $w\in W$ and $a\in\FF$, $aw\in W$ since $W$ is a subspace.
+	Thus, for any finite $\set{w_j}_{j=1}^n\subseteq W$ and $\set{a_j}_{j=1}^n\subseteq\FF$, $\sum a_jw_j\in W$ by properties of vector spaces.
+	Ergo, $\spann W\subseteq W$ and $W=\spann W$.
+
+	$\Leftarrow$ Suppose $W=\spann W$.
+	Since $\spann W$ is a subspace and $W=\spann W$, $W$ is trivially a subspace.
+\end{proof}
+
+\begin{proposition}
+	Let $S,R$ be nonempty subsets of $V$ such that $S\subseteq R$.
+	Then $\spann S\subseteq \spann R$ and if $\spann S=V$, then $\spann R=V$.
+\end{proposition}
+\begin{proof}
+	I provide a sketch and leave the details to the reader.
+
+	All vectors in $S$ are also in $R$ ergo all sums of scalar multiples of vectors in $S$ (read: $\spann S$) are in $\spann R$.
+
+	Furthermore, we know $\spann R$ is a subspace of $V$, and thus $\spann R\subseteq V$.
+	If $V=\spann S\subseteq \spann R$, then $V\subseteq \spann R$ and thus $\spann R=V$.
+\end{proof}
