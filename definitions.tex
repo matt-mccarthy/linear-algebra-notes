@@ -152,3 +152,16 @@
 \begin{definition}[Span]
 A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V$.
 \end{definition}
+
+\pagebreak
+
+\subsection{Linear Independence}
+
+\begin{definition}[Linear Independence]
+	A subset $S$ of a vector space $V$ over a field $\FF$ is \textit{linearly independent} if and only if for any $\set{x_j}_{j=1}^n\subseteq V$ where $n<\infty$ the statement
+	\[
+		\sum_{j=1}^n a_jx_j=0
+	\]
+	implies that $\set{a_j}=\set{0}$, where $\set{a_j}\subseteq\FF$.
+	Furthermore, if $S$ is not linearly independent, we say that $S$ is \textit{linearly dependent}.
+\end{definition}

@@ -638,3 +638,66 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	Furthermore, we know $\spann R$ is a subspace of $V$, and thus $\spann R\subseteq V$.
 	If $V=\spann S\subseteq \spann R$, then $V\subseteq \spann R$ and thus $\spann R=V$.
 \end{proof}
+
+\pagebreak
+
+\subsection{Linear Independence}
+
+\begin{definition}[Linear Independence]
+	A subset $S$ of a vector space $V$ over a field $\FF$ is \textit{linearly independent} if and only if for any $\set{x_j}_{j=1}^n\subseteq V$ where $n<\infty$ the statement
+	\[
+		\sum_{j=1}^n a_jx_j=0
+	\]
+	implies that $\set{a_j}=\set{0}$, where $\set{a_j}\subseteq\FF$.
+	Furthermore, if $S$ is not linearly independent, we say that $S$ is \textit{linearly dependent}.
+\end{definition}
+
+\begin{example}
+	Let $\FF$ be a field and $n\in\NN$.
+	Define, $e_j:=(a_1,a_2,\ldots,a_n)\in\FF^n$ where $a_j=1$ and $a_i=0$ for all $i\neq j$.
+	Then $\set{e_1,e_2,\ldots,e_n}$ is linearly independent.
+\end{example}
+\begin{proof}
+	Let $\set{c_j}_{j=1}^n\subseteq\FF$ such that $\sum c_je_j=0$.
+	Consider $c_je_j$.
+	On the $j$th entry of this vector, we will have $c_j$ and all other entries are zero.
+	Therefore,
+	\[
+		\sum c_je_j=(c_1,c_2,\ldots,c_n)=(0,0,\ldots,0).
+	\]
+	By our definition of vector equality in $\FF^n$ we have $c_j=0$ for all $1\leq j\leq n$.
+	Thus, $\set{e_j}_{j=1}^n$ is linearly independent.
+\end{proof}
+
+\begin{theorem}
+	A subset $S$ of a vector space $V$ over a field $\FF$ is linearly dependent if and only if $x_1=0$ or there exists a $k<n$ such that $x_{k+1}\in\spann \set{x_1,x_2,\ldots,x_k}$.
+\end{theorem}
+\begin{proof}
+	$\Rightarrow$ Assume $S$ is linearly dependent.
+	Therefore, there exists a $\set{a_j}_{j=1}^n\subseteq\FF$ with $\set{a_j}_{j=1}^n\neq\set{0}$ such that $\sum a_jx_j=0$.
+	Define $k=\max\set{j|a_j\neq 0}$.
+	If $1<k\leq n$, then
+	\[
+		\sum_{j=1}^n a_jx_j=\sum_{j=1}^k a_jx_j=0
+	\]
+	and
+	\[
+		x_k = \sum_{j=1}^n(-a_ja_k^{-1})\in\spann\set{x_1,x_2,\ldots,x_{k-1}}.
+	\]
+	If $k=1$, then
+	\[
+		\sum_{j=1}^n a_jx_j=a_1x_1=0
+	\]
+	with $a_1\neq 0$.
+	Ergo, $x_1=0$.
+
+	$\Leftarrow$ Assume $x_1=0$.
+	Then $ax_1=0$ for all $a\in\FF$ and $S$ is linearly dependent.
+	Assume there exists a $k<n$ such that $x_{k+1}\in\spann \set{x_1,x_2,\ldots, x_k}$.
+	Then there exists $\set{a_j}\subseteq\FF$ such that $x_{k+1}=\sum_{j=1}^k a_jx_j$.
+	We know $\sum_{j=1}^k a_jx_j - x_{k+1}$ is a linear combination of vectors in $\FF$ and
+	\[
+		\sum_{j=1}^k a_jx_j - x_{k+1}=0
+	\]
+	thus, $S$ is linearly dependent.
+\end{proof}
