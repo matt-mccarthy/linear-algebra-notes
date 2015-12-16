@@ -756,6 +756,22 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	A \textit{basis} $B$ for a vector space $V$ is a a linearly independent subset of $V$ that spans $V$.
 \end{definition}
 
+\begin{example}
+	Let $\FF$ be a field and $n\in\NN$.
+	Define, $e_j:=(a_1,a_2,\ldots,a_n)\in\FF^n$ where $a_j=1$ and $a_i=0$ for all $i\neq j$.
+	Then $\set{e_1,e_2,\ldots,e_n}$ is a basis of $\FF^n$.
+\end{example}
+
+\begin{example}
+	Let $\FF$ be a field and $n,m\in\NN$.
+	Define, $e_{i,j}\in M_{m\times n}(\FF^n)$ where $(e_{i,j})_{i,j}=1$ and $(e_{i,j})_{k,l}=0$ for all $k\neq i$ and $j\neq l$.
+	Then $\set{e_{i,j}}_{i,j=1}^{m,n}$ is a basis of $M_{m\times n}(\FF^n)$.
+\end{example}
+\begin{proof}
+	We proved that both of the above examples are linearly independent and span their vector spaces in the linear independence and linear combination sections respectively.
+	Thus, they are both bases of their respective vector spaces.
+\end{proof}
+
 \begin{thm}
 	Let $S$ be a linearly independent subset of a vector space $V$ over a field $\FF$ and $x\in V\setminus S$.
 	Then, $S\cup\set{x}$ is linearly dependent if and only if $x\in\spann S$.
