@@ -611,6 +611,37 @@
 A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V$.
 \end{definition}
 
+\begin{example}
+	Let $\FF$ be a field and $n\in\NN$.
+	Define, $e_j:=(a_1,a_2,\ldots,a_n)\in\FF^n$ where $a_j=1$ and $a_i=0$ for all $i\neq j$.
+	Then $\set{e_1,e_2,\ldots,e_n}$ spans $\FF^n$.
+\end{example}
+\begin{proof}
+	Let $(c_1,c_2,\ldots,c_n)\in\FF^n$.
+	Then,
+	\[
+		\sum_{j=1}^n c_je_j = \sum_{j=1}^n (0,\ldots,c_j,\ldots,0) = (c_1,c_2,\ldots,c_n)\in\spann\set{e_1,e_2,\ldots,e_n}.
+	\]
+\end{proof}
+
+\begin{example}
+	Let $\FF$ be a field and $n,m\in\NN$.
+	Define, $e_{i,j}\in M_{m\times n}(\FF^n)$ where $(e_{i,j})_{i,j}=1$ and $(e_{i,j})_{k,l}=0$ for all $k\neq i$ and $j\neq l$.
+	Then $\set{e_{i,j}}_{i,j=1}^{m,n}$ spans $M_{m\times n}(\FF^n)$.
+\end{example}
+\begin{proof}
+	Let $A\in M_{m\times n}(\FF^n)$.
+	Then,
+	\[
+		\paren{\sum_{i=1}^m\sum_{j=1}^n A_{i,j} e_{i,j}}_{k,l}=\sum_{i=1}^m\sum_{j=1}^n A_{i,j} (e_{i,j})_{k,l}=A_{k,l}
+	\]
+	since $(e_{i,j})_{k,l}=1$ when $i=k$ and $j=l$ and is zero otherwise.
+	Thus,
+	\[
+		A=\sum_{i=1}^m\sum_{j=1}^n A_{i,j} e_{i,j}.
+	\]
+\end{proof}
+
 \begin{proposition}
 	Let $W$ be a nonempty subset of a vector space $V$ over a field $\FF$.
 	Then $W$ is a subspace of $V$ if and only if $W=\spann W$.
@@ -667,6 +698,21 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	\]
 	By our definition of vector equality in $\FF^n$ we have $c_j=0$ for all $1\leq j\leq n$.
 	Thus, $\set{e_j}_{j=1}^n$ is linearly independent.
+\end{proof}
+
+\begin{example}
+	Let $\FF$ be a field and $n,m\in\NN$.
+	Define, $e_{i,j}\in M_{m\times n}(\FF^n)$ where $(e_{i,j})_{i,j}=1$ and $(e_{i,j})_{k,l}=0$ for all $k\neq i$ and $j\neq l$.
+	Then $\set{e_{i,j}}_{i,j=1}^{m,n}$ is linearly independent.
+\end{example}
+
+\begin{proof}
+	Let $\set{a_{i,j}}_{i,j=1}^{m,n}\subseteq\FF$ such that $\sum\sum a_{i,j}e_{i,j}=0$.
+	Then, for all $1\leq k\leq m$ and $1\leq l\leq n$
+	\[
+		0=\paren{\sum\sum a_{i,j}e_{i,j}}_{k,l}=\sum\sum a_{i,j}(e_{i,j})_{k,l}=a_{k,l}.
+	\]
+	Thus, $\set{a_{i,j}}=\set{0}$ and $\set{e_{i,j}}_{i,j=1}^{m,n}$ is linearly independent.
 \end{proof}
 
 \begin{thm}
