@@ -669,9 +669,9 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	Thus, $\set{e_j}_{j=1}^n$ is linearly independent.
 \end{proof}
 
-\begin{theorem}
+\begin{thm}
 	A subset $S$ of a vector space $V$ over a field $\FF$ is linearly dependent if and only if $x_1=0$ or there exists a $k<n$ such that $x_{k+1}\in\spann \set{x_1,x_2,\ldots,x_k}$.
-\end{theorem}
+\end{thm}
 \begin{proof}
 	$\Rightarrow$ Assume $S$ is linearly dependent.
 	Therefore, there exists a $\set{a_j}_{j=1}^n\subseteq\FF$ with $\set{a_j}_{j=1}^n\neq\set{0}$ such that $\sum a_jx_j=0$.
@@ -701,3 +701,16 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	\]
 	thus, $S$ is linearly dependent.
 \end{proof}
+
+\pagebreak
+
+\subsection{Bases and Dimension}
+
+\begin{definition}[Basis of a Vector Space]
+	A \textit{basis} $B$ for a vector space $V$ is a a linearly independent subset of $V$ that spans $V$.
+\end{definition}
+
+\begin{thm}
+	Let $S$ be a linearly independent subset of a vector space $V$ over a field $\FF$ and $x\in V\setminus S$.
+	Then, $S\cup\set{x}$ is linearly dependent if and only if $x\in\spann S$.
+\end{thm}
