@@ -559,7 +559,7 @@
 	We define $\spann\emptyset = \set{0}$.
 \end{definition}
 
-\begin{thm}
+\begin{thm}\label{lincomb-min-ss}
 	Let $V$ be a vector space over a field $\FF$ and let $S$ be a nonempty subset of $V$.
 	Then $\spann S$ is a subspace of $V$ and is the smallest subspace of $V$ containing $S$.
 \end{thm}
@@ -776,3 +776,50 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	Let $S$ be a linearly independent subset of a vector space $V$ over a field $\FF$ and $x\in V\setminus S$.
 	Then, $S\cup\set{x}$ is linearly dependent if and only if $x\in\spann S$.
 \end{thm}
+\begin{proof}
+	$\Rightarrow$ Suppose $S\cup\set{x}$ is linearly dependent.
+	Ergo, there exists a $\set{s_i}_{i=1}^n\subseteq S\cup\set{x}$ and $\set{a_i}_{i=1}^n\subseteq\FF\setminus\set{0}$ such that
+	\[
+		\sum a_is_i=0.
+	\]
+	Furthermore, $x\in\set{s_i}$ since if $x\notin\set{s_i}$ then $\set{s_i}\subseteq S$, which is linearly independent.
+	Without loss of generality, suppose $x=s_n$.
+	Thus,
+	\[
+		\sum a_is_i +a_ns_n=0
+	\]
+	and
+	\[
+		x=s_n=-a_n^{-1}\sum a_is_i\in\spann S.
+	\]
+
+	$\Leftarrow$ Suppose $x\in\spann S$.
+	Then there exists $\set{s_i}_{i=1}^n\subseteq S$ and $\set{a_i}_{i=1}^n\subseteq\FF\setminus\set{0}$ such that
+	\[
+		x = \sum a_i s_i.
+	\]
+	Therefore,
+	\[
+		\sum a_i s_i + (-1)x=0
+	\]
+	and $S\cup\set{x}$ is linearly dependent.
+\end{proof}
+
+\begin{thm}
+	Let $V$ be a vector space over a field $\KK$.
+	If $V$ is spanned by a finite subset, $S$, then a subset of $S$ is a basis for $V$.
+	Therefore, $V$ has a finite basis.
+\end{thm}
+\begin{proof}
+	If $S=\emptyset$ or $S=\set{0}$. then trivially, $V=\set{0}$ and we found our basis, congrats.
+	Otherwise, we have the more interesting case where there exists at least one $x_1\in S$ with $x_1\neq0$.
+	Note, that the set $\set{x_1}$ is linearly independent.
+	If possible, continue picking elements $x_2,x_3,\ldots,x_n$ such that $B=\set{x_1,x_2,\ldots,x_n}$ is linearly independent until adding any other element causes $B$ to be linearly dependent or we run out of elements.
+	If we ran out of elements while constructing our linearly independent subset, then $S$ is linearly independent and thus is a finite basis of $V$, yay.
+	Otherwise, for any $y\in S\setminus B$, we know that $B\cup\set{y}$ is linearly dependent and thus, $y\in\spann B$.
+	Moreover, $B\subseteq\spann B$.
+	Ergo, $S\subseteq \spann B\subseteq\spann S$.
+	However, since $\spann S$ is the minimal subspace of $V$ containing $S$ and $\spann B$ is also a subspace, $\spann S\subseteq\spann B$ and $\spann B=\spann S$.
+	Thus, $B$ is a linearly independent subset that spans $V$.
+	Finally, we can say $B$ is a finite basis of $V$ since $B\subseteq S$, a finite set.
+\end{proof}
