@@ -829,3 +829,39 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	Let $S=\set{y_1,y_2,\ldots,y_m}$ be a linearly independent subset of $V$ with $m\leq n$.
 	Then there exists a subset $B_1$ in $B$ with cardinality $n-m$ such that $S\cup B_1$ spans $V$.
 \end{thm}
+\begin{proof}
+	Proceed via induction on $m$.
+	Let $H(k)$ represent that the hypothesis that the theorem is true for $m=k$.
+	Consider $H(0)$.
+	In this case, $S=\emptyset$ and taking $B_1=B$ satisfies the theorem.
+	Suppose $H(k)$ is true for some $k<n$, we now wish to show that $H(k+1)$ is true.
+	Let $S:=\set{y_1,y_2,\ldots,s_{k+1}}$ be linearly independent.
+	Since $S$ is linearly independent, $S':=\set{y_1,\ldots,y_k}$ is linearly independent.
+	Since $H(k)$ is true, there exists a $B':=\set{x_1,\ldots,x_{n-k}}\subseteq B$ such that $S'\cup B'$ spans $V$.
+	Therefore, there exists $\set{a_j}_{j=1}^k,\set{b_j}_{j=1}^{n-k}\subseteq\FF$ such that
+	\begin{equation}\label{rep-eqn-1}
+		y_{k+1}=\paren{\sum_{j=1}^k a_jy_j}+\paren{\sum_{j=1}^{n-k}b_jx_j}.
+	\end{equation}
+	Furthermore, at least one $b_j$ must be nonzero, because otherwise,
+	\[
+		y_{k+1}=\sum_{j=1}^k a_jy_j
+	\]
+	a clear violation of our assumed linear independence.
+	Without loss of generality, assume $b_1$ is nonzero.
+	Take $B_1=B'\setminus\set{x_1}$.
+	Solving \autoref{rep-eqn-1} for $x_1$ yields,
+	\[
+		x_1=\paren{\sum_{j=1}^k b_1^{-1}a_jy_j}+\paren{\sum_{j=2}^{n-k}b_1^{-1}b_jx_j}-b_1^{-1}y_{k+1}
+	\]
+	which is clearly in the span of $S\cup B_1$.
+	Furthermore, $y_1,\ldots,y_m,y_{m+1},x_2,\ldots,x_{n-k}$ is also in that span.
+	By minimality (Theorem\autoref{lincomb-min-ss}), we have
+	\[
+		\span (S'\cup B') \subseteq \span (S\cup B_1) \subseteq V.
+	\]
+	However, $\span (S'\cup B')=V$ by $H(K)$ and thus,
+	\[
+		V\subseteq \span (S\cup B_1) \subseteq V.
+	\]
+	Ergo, $\span (S\cup B_1) = V$.
+\end{proof}
