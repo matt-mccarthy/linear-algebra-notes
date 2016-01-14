@@ -824,10 +824,10 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	Finally, we can say $B$ is a finite basis of $V$ since $B\subseteq S$, a finite set.
 \end{proof}
 
-\begin{thm}
+\begin{thm}\label{replacement-thm}
 	Let $V$ be a vector space over a field $\FF$ with a basis, $B$, containing $n$ elements.
 	Let $S=\set{y_1,y_2,\ldots,y_m}$ be a linearly independent subset of $V$ with $m\leq n$.
-	Then there exists a subset $B_1$ in $B$ with cardinality $n-m$ such that $S\cup B_1$ spans $V$.
+	Then there exists a subset $B_1$ in $B$ with cardinality $n-m$ such that $S\cup B_1$ is a basis $V$.
 \end{thm}
 \begin{proof}
 	Proceed via induction on $m$.
@@ -857,11 +857,47 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	Furthermore, $y_1,\ldots,y_m,y_{m+1},x_2,\ldots,x_{n-k}$ is also in that span.
 	By minimality (Theorem\autoref{lincomb-min-ss}), we have
 	\[
-		\span (S'\cup B') \subseteq \span (S\cup B_1) \subseteq V.
+		\spann (S'\cup B') \subseteq \spann (S\cup B_1) \subseteq V.
 	\]
 	However, $\span (S'\cup B')=V$ by $H(K)$ and thus,
 	\[
-		V\subseteq \span (S\cup B_1) \subseteq V.
+		V\subseteq \spann (S\cup B_1) \subseteq V.
 	\]
-	Ergo, $\span (S\cup B_1) = V$.
+	Ergo, $\spann (S\cup B_1) = V$.
+	Since $S\cup B_1$ is linearly independent as well, $S\cup B_1$ is a basis.
+\end{proof}
+
+\begin{corollary}
+	Let $V$ be a vector space over a field $\FF$ with a basis $B$ that contains $n$ elements.
+	Then any linearly independent subset of $V$ with cardinality $n$ is a basis for $V$.
+\end{corollary}
+\begin{proof}
+	Let $S\subseteq V$ be linearly independent with $\card S=n$.
+	Then by Theorem\autoref{replacement-thm} there exists a $B_1\subseteq B$ with $\card B_1=n-n=0$ such that $B_1\cup S$ is a basis for $V$.
+	Since $\card B_1=0$, $B_1=\emptyset$ and $S$ is a basis for $V$.
+\end{proof}
+
+\begin{corollary}
+	Let $V$ be a vector space over a field $\FF$ that has a basis, $B$, with $\card B=n$.
+	Then any subset of $V$ with cardinality greater than $n$ is linearly dependent.
+\end{corollary}
+\begin{proof}
+	Suppose $S\subseteq V$ is linearly independent with $\card S > n$.
+	Therefore any $R\subset S$ with $\card R=n$ is a basis of $V$.
+	Moreover, since $\card R < \card S$ and $R\subset S$, there exists an $x\in S\setminus R$.
+	Since $R$ is a basis, and $x\in V$, $x\in \spann R$, which in turn tells us that $S$ is linearly dependent.
+	Therefore, any $S\subseteq V$ with $\card S > n$ is linearly dependent.
+\end{proof}
+
+\begin{corollary}
+	Let $V$ be a vector space over a field $\FF$ that has a basis, $B$, with $\card B=n$.
+	Then any basis of $V$ contains exactly $n$ elements
+\end{corollary}
+\begin{proof}
+	Suppose $S$ is a basis of $V$.
+	Since $B$ is a basis, it is linearly independent and thus it has cardinality less than or equal to $n$.
+	Define $m=\card S$.
+	We know that $m \leq n$ since $S$ is linearly independent and $B$ is a basis.
+	Moreover, $n leq m$ since $B$ is linearly independent and $S$ is a basis.
+	Thus, $m=n$ and any basis of $V$ will have cardinality $n$.
 \end{proof}
