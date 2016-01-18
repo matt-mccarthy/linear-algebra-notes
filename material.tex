@@ -859,7 +859,7 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	\[
 		\spann (S'\cup B') \subseteq \spann (S\cup B_1) \subseteq V.
 	\]
-	However, $\span (S'\cup B')=V$ by $H(K)$ and thus,
+	However, $\spann (S'\cup B')=V$ by $H(K)$ and thus,
 	\[
 		V\subseteq \spann (S\cup B_1) \subseteq V.
 	\]
@@ -900,4 +900,59 @@ A subset $S$ of a vector space $V$ \textit{spans $V$} if and only if $\spann S=V
 	We know that $m \leq n$ since $S$ is linearly independent and $B$ is a basis.
 	Moreover, $n leq m$ since $B$ is linearly independent and $S$ is a basis.
 	Thus, $m=n$ and any basis of $V$ will have cardinality $n$.
+\end{proof}
+
+\begin{definition}[Dimension of a Vector Space]
+	A vector space $V$ is called \textit{finite-dimensional} if and only if $V$ has a finite basis.
+	Furthermore $B$ is a basis of $V$ with $\card B=n$ then we say $V$ has \textit{dimension} $n$, denoted $\dim V = n$.
+	If $V$ is not finite-dimensional, then we say $V$ is \textit{infinite-dimensional}.
+\end{definition}
+
+\begin{corollary}
+	Suppose $V$ is a vector space with $\dim V=n$ and let $S\subseteq V$ span $V$ with $\card S\leq n$.
+	Then $S$ is a basis of $V$.
+\end{corollary}
+\begin{proof}
+	Since $\spann S=V$, there exists an $S'\subseteq S$ such that $S'$ is a basis for $V$.
+	Since $S'$ is a basis and $\dim V=n$, $\card S'=n$.
+	Thus,
+	\[
+		n = \card S' \leq \card S \leq n.
+	\]
+	Yielding, $\card S=n$ and $S' = S$.
+	Therefore, $S$ is a basis of $V$.
+\end{proof}
+
+\begin{corollary}
+	Let $B$ be a basis for a finite-dimensional vector space $V$ and let $S\subseteq V$ be linearly independent.
+	Then there exists a $B'\subseteq B$ such that $B'\cup S$ is a basis of $V$.
+\end{corollary}
+\begin{proof}
+	Define $\dim V=n$ and $\card S=m\leq n$.
+	Then by replacement theorem, there exists a $B'\subseteq B$ with $\card B' = n-m$ such that $B'\cup S$ is a basis of $V$.
+\end{proof}
+
+\begin{thm}
+	Let $W$ be a subspace of a finite dimensional vector space $V$.
+	Then $W$ is finite dimensional and $\dim W\leq \dim V$.
+	Moreover, if $\dim W = \dim V$, then $W=V$.
+\end{thm}
+\begin{proof}
+	Let $B$ be a basis for $W$.
+	Then $B$ is linearly independent.
+	Since $B$ is linearly independent and $B\subseteq W\subseteq V$, $\dim W=\card B\leq \dim V$.
+
+	Suppose $\dim W=\dim V$.
+	Let $B$ be a basis for $W$.
+	Since $B$ is linearly independent and $\card B=\dim W=\dim V$, $B$ is a basis for $V$.
+	Thus, $W=\spann B = V$.
+\end{proof}
+
+\begin{corollary}
+	Let $W$ be a subspace of a finite dimensional vector space $V$, then any basis of $W$ is a subset of a basis of $V$.
+\end{corollary}
+\begin{proof}
+	Let $S$ be a basis of $W$ and $B$ be a basis of $V$.
+	Then $S$ is linearly independent and by replacement theorem there exists a $B'\subseteq B$ such that $S\cup B'$ is a basis of $V$.
+	Obviously, $S\subseteq S\cup B'$ and thus $S$ is a subset of a basis of $V$.
 \end{proof}
